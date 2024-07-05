@@ -1,9 +1,9 @@
 import { Col, Row, Space, Table } from "antd";
 import Search from "antd/es/input/Search";
 import React from "react";
-import { strings } from "../../../constants"
+import { strings } from "../../constants";
 
-export const MainList: React.FC<TableProps> = ({ columns, dataSource }) => {
+export const SearchTable: React.FC<TableProps> = ({ columns, dataSource, props }) => {
     return (
         <>
             <Space direction="vertical" style={{ width: '100%', marginBottom: 16}}>
@@ -16,6 +16,7 @@ export const MainList: React.FC<TableProps> = ({ columns, dataSource }) => {
             <Table
                 columns={columns}
                 dataSource={dataSource}
+                {...props}
             />
         </>
     )

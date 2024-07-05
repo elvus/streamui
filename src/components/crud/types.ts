@@ -1,4 +1,5 @@
 type TableProps = {
     columns: any[],
-    dataSource: any[]
+    dataSource: any[],
+    props?: any
 }

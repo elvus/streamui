@@ -1,5 +1,5 @@
 import React from "react";
-import { MainBlock, MainList } from "../../components";
+import { MainBlock, SearchTable } from "../../components";
 
 export const TeachersList: React.FC = () => {
     const dataSource = [
@@ -45,10 +45,7 @@ export const TeachersList: React.FC = () => {
                 path: "/teachers"
             }
         ]}>
-            <MainList
-                columns={columns}
-                dataSource={dataSource}
-            />
+            <SearchTable columns={columns} dataSource={dataSource} />
         </MainBlock>
     )
 }
