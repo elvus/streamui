@@ -5,36 +5,34 @@ import { StudentsList } from './pages/students';
 import { TeachersList } from './pages/teachers';
 
 export const menuItems = [
-    { key: '0', icon: <HomeOutlined />, label: 'Home', to: '/', component: <Home /> },
-    { key: '1', icon: <ShopOutlined />, label: 'Schools', to: '/schools', component: <SchoolsList /> },
-    { key: '2', icon: <ContactsOutlined />, label: 'Students', to: '/students', component: <StudentsList /> },
-    { key: '3', icon: <TeamOutlined />, label: 'Teachers', to: '/teachers', component: <TeachersList /> },
+    { key: '/', icon: <HomeOutlined />, label: 'Home', to: '/', component: <Home /> },
+    { key: '/schools', icon: <ShopOutlined />, label: 'Schools', to: '/schools', component: <SchoolsList /> },
+    { key: '/students', icon: <ContactsOutlined />, label: 'Students', to: '/students', component: <StudentsList /> },
+    { key: '/teachers', icon: <TeamOutlined />, label: 'Teachers', to: '/teachers', component: <TeachersList /> },
     {
-        key: '4',
+        key: 'sub1',
         label: 'Navigation One',
         icon: <MailOutlined />,
         children: [
-            { key: '5', label: 'Option 5', to: '/option5', component: <Home /> },
-            { key: '6', label: 'Option 6', to: '/option6', component: <Home /> },
-            { key: '7', label: 'Option 7', to: '/option7', component: <Home /> },
-            { key: '8', label: 'Option 8', to: '/option8', component: <Home /> },
+            { key: '/option5', label: 'Option 5', to: '/option5' },
+            { key: '/option6', label: 'Option 6', to: '/option6' },
+            { key: '/option7', label: 'Option 7', to: '/option7' },
+            { key: '/option8', label: 'Option 8', to: '/option8' },
         ],
     },
     {
-        key: '5',
+        key: 'sub2',
         label: 'Navigation Two',
         icon: <AppstoreOutlined />,
-        component: <Home />,
         children: [
-            { key: '9', label: 'Option 9', to: '/option9', component: <Home /> },
-            { key: '10', label: 'Option 10', to: '/option10', component: <Home /> },
+            { key: '/option9', label: 'Option 9', to: '/option9' },
+            { key: '/option10', label: 'Option 10', to: '/option10' },
             {
                 key: 'sub3',
                 label: 'Submenu',
-                component: <Home />,
                 children: [
-                    { key: '11', label: 'Option 11', to: '/option11', component: <Home /> },
-                    { key: '12', label: 'Option 12', to: '/option12', component: <Home /> },
+                    { key: '/option11', label: 'Option 11', to: '/option11' },
+                    { key: '/option12', label: 'Option 12', to: '/option12' },
                 ],
             },
         ],

@@ -6,20 +6,24 @@ import { menuItems } from "./constants";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-const items: MenuItem[] = menuItems.map((item) => {
+const getMenuChildren = (item: any) => {
 	if (item.children) {
-		return {
+		return{
 			...item,
-			children: item.children.map((child) => ({
-				...child,
-				label: child.to ? <Link to={child.to}>{child.label}</Link> : child.label
-			})),
+			children: item.children.map((child: any) => {
+				return getMenuChildren(child);
+			})
 		};
 	}
 	return {
 		...item,
-		label:<Link to={item.to}>{item.label}</Link>
+		label: item.to ? <Link to={item.to}>{item.label}</Link> : item.label
 	};
+
+}
+
+const items: MenuItem[] = menuItems.map((item) => {
+	return getMenuChildren(item);
 });
 
 function App() {

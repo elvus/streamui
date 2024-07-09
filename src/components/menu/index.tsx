@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, Space, Typography } from 'antd';
 import { Outlet } from 'react-router-dom';
@@ -15,6 +16,19 @@ interface MainMenuProps {
 
 export const MainMenu: React.FC<MainMenuProps> = ({ menuItems }) => {
     const [collapsed, setCollapsed] = useState(false);
+    //set current key
+    const location = useLocation();
+    const [openKeys, setOpenKeys] = useState<string[]>([]);
+    const currentKey = location.pathname;
+    // close submenus on deselect
+    const onSelect: MenuProps['onSelect'] = ({ key }) => {
+        if(openKeys.includes(key as string)) return;
+    }
+    // open one submenu on select
+    const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+        setOpenKeys(keys as string[]);
+    }
+    
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Header style={{ display: 'flex', alignItems: 'center', paddingInlineStart: '40px' }}>
@@ -27,7 +41,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ menuItems }) => {
             </Header>
             <Layout>
                 <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} theme='dark'>
-                    <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" items={menuItems} />
+                    <Menu theme="dark" selectedKeys={[currentKey]} mode="inline" items={menuItems} onSelect={onSelect} onOpenChange={onOpenChange} openKeys={openKeys}/>
                 </Sider>
                 <Outlet />
             </Layout>
