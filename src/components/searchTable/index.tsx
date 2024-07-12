@@ -29,7 +29,6 @@ export const SearchTable: React.FC<TableProps> = ({ columns, dataSource, props }
                             size="middle"
                             placeholder={strings.searchPlaceholder}
                             onChange={debouncedSearch}
-                            enterButton
                         />
                     </Col>
                 </Row>

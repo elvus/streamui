@@ -9,13 +9,13 @@ import { BlankPage } from './pages/blankPage/index.tsx'
 
 const getChildRoutes = (item: any) => {
 	if (item.children) {
-		return (<Route key={item.key} path={item.to} element={item.component ? item.component : <BlankPage />}>
+		return (<Route key={item.key} path={item.to}>
 			{item.children.map((child: any) => (
 				getChildRoutes(child)
 			))}
 		</Route>)
 	}
-	return <Route key={item.key} path={item.to} element={item.component} />
+	return <Route key={item.key} path={item.to} element={item.component ? item.component : <BlankPage />} />
 }
 
 const router = createBrowserRouter(

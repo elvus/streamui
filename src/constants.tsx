@@ -1,8 +1,9 @@
-import { HomeOutlined, ShopOutlined, ContactsOutlined, TeamOutlined, MailOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { HomeOutlined, ShopOutlined, ContactsOutlined, TeamOutlined, FormOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Home } from './pages/home';
 import { SchoolsList } from './pages/schools';
 import { StudentsList } from './pages/students';
 import { TeachersList } from './pages/teachers';
+import { DemoForm, ModalForm } from './pages/forms';
 
 export const menuItems = [
     { key: '/', icon: <HomeOutlined />, label: 'Home', to: '/', component: <Home /> },
@@ -11,11 +12,11 @@ export const menuItems = [
     { key: '/teachers', icon: <TeamOutlined />, label: 'Teachers', to: '/teachers', component: <TeachersList /> },
     {
         key: 'sub1',
-        label: 'Navigation One',
-        icon: <MailOutlined />,
+        label: 'Forms',
+        icon: <FormOutlined />,
         children: [
-            { key: '/option5', label: 'Option 5', to: '/option5' },
-            { key: '/option6', label: 'Option 6', to: '/option6' },
+            { key: '/demoform', label: 'Form Demo', to: '/demoform', component: <DemoForm /> },
+            { key: '/modalform', label: 'Modal Form', to: '/modalform', component: <ModalForm /> },
             { key: '/option7', label: 'Option 7', to: '/option7' },
             { key: '/option8', label: 'Option 8', to: '/option8' },
         ],

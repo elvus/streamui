@@ -1,5 +1,6 @@
 import React from "react";
 import { MainBlock, SearchTable } from "../../components";
+import { Button } from "antd";
 
 export const SchoolsList: React.FC = () => {
     const dataSource = [
@@ -41,7 +42,7 @@ export const SchoolsList: React.FC = () => {
         },{
             title: "Schools",
             path: "/schools"
-        }]}>
+        }]} button={<Button type="primary" size='middle'>New</Button>}>
             <SearchTable columns={columns} dataSource={dataSource} />
         </MainBlock>
     )
