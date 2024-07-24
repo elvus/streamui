@@ -1,8 +1,11 @@
 import React from "react";
 import { MainBlock, SearchTable } from "../../components";
+import { PlusSquareOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { SchoolsCreate } from "./create";
 
 export const SchoolsList: React.FC = () => {
+    const [open, setOpen] = React.useState(false);
     const dataSource = [
         {
             key: '1',
@@ -35,15 +38,22 @@ export const SchoolsList: React.FC = () => {
             key: 'address',
         },
     ];
+
+    const handleCreate = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setOpen(true);
+    }
+    
     return (
         <MainBlock title="Schools" breadcrumb={[{
             title: "Home",
             path: "/"
-        },{
+        }, {
             title: "Schools",
             path: "/schools"
-        }]} button={<Button type="primary" size='middle'>New</Button>}>
+        }]} button={<Button type="primary" size='middle' icon={<PlusSquareOutlined />} onClick={handleCreate}>New</Button>}>
             <SearchTable columns={columns} dataSource={dataSource} />
+            <SchoolsCreate title="Create School" open={open} okText="Create" cancelText="Cancel" setOpen={setOpen} />
         </MainBlock>
     )
 }

@@ -9,7 +9,8 @@ import { BlankPage } from './pages/blankPage/index.tsx'
 
 const getChildRoutes = (item: any) => {
 	if (item.children) {
-		return (<Route key={item.key} path={item.to}>
+		return (<Route key={item.key}>
+			<Route path={item.to} element={item.component ? item.component : <BlankPage />} />
 			{item.children.map((child: any) => (
 				getChildRoutes(child)
 			))}

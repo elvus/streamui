@@ -1,5 +1,8 @@
 import React from "react";
 import { MainBlock, SearchTable } from "../../components";
+import { PlusSquareOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 export const StudentsList: React.FC = () => {
     const dataSource = [
@@ -38,10 +41,10 @@ export const StudentsList: React.FC = () => {
         <MainBlock title="Students" breadcrumb={[{
             title: "Home",
             path: "/"
-        },{
+        }, {
             title: "Students",
             path: "/students"
-        }]}>
+        }]} button={<Link to="/students/option1"><Button type="primary" size='middle' icon={<PlusSquareOutlined />}>New</Button></Link>}>
             <SearchTable columns={columns} dataSource={dataSource} />
         </MainBlock>
     )

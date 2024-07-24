@@ -14,3 +14,10 @@ type MainBlockProps = {
 type MainBreadcrumbProps = {
     items: BreadcrumbItem[];
 };
+
+type NotifyProps = {
+    type: 'success' | 'info' | 'warning' | 'error';
+    message?: string;
+    description?: string;
+    showNotification?: boolean;
+}

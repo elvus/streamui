@@ -8,14 +8,23 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const getMenuChildren = (item: any) => {
 	if (item.children) {
-		return{
-			...item,
-			children: item.children.map((child: any) => {
-				return getMenuChildren(child);
-			})
-		};
+		const { children, ...rest } = item;
+		const childrenItems = children.filter((child: any) => child.show).map(getMenuChildren)
+		if (childrenItems.length === 0) {
+			console.log(rest);
+			return {
+				...rest,
+				label: rest.to ? <Link to={rest.to}>{rest.label}</Link> : rest.label
+			}
+		}else{
+			return{
+				...item,
+				children: childrenItems
+			};
+		
+		}
 	}
-	return {
+	return item.show === false ? null : {
 		...item,
 		label: item.to ? <Link to={item.to}>{item.label}</Link> : item.label
 	};
@@ -29,7 +38,7 @@ const items: MenuItem[] = menuItems.map((item) => {
 function App() {
 	return (
 		<ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-			<MainMenu menuItems={items} />				
+			<MainMenu menuItems={items} />
 		</ConfigProvider>
 	)
 }
