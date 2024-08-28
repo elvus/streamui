@@ -45,13 +45,7 @@ export const SchoolsList: React.FC = () => {
     }
     
     return (
-        <MainBlock title="Schools" breadcrumb={[{
-            title: "Home",
-            path: "/"
-        }, {
-            title: "Schools",
-            path: "/schools"
-        }]} button={<Button type="primary" size='middle' icon={<PlusSquareOutlined />} onClick={handleCreate}>New</Button>}>
+        <MainBlock title="Schools" showBreadcrumb={true} button={<Button type="primary" size='middle' icon={<PlusSquareOutlined />} onClick={handleCreate}>New</Button>}>
             <SearchTable columns={columns} dataSource={dataSource} />
             <SchoolsCreate title="Create School" open={open} okText="Create" cancelText="Cancel" setOpen={setOpen} />
         </MainBlock>

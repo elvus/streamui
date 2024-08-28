@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import type { MenuProps } from 'antd';
 import { Layout, Menu, Space, Typography } from 'antd';
@@ -19,7 +19,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ menuItems }) => {
     //set current key
     const location = useLocation();
     const [openKeys, setOpenKeys] = useState<string[]>([]);
-    const currentKey = location.pathname;
+    const currentPath = location.pathname.split('/').slice(1)[0]
+    const currentKey = useMemo(() => menuItems.find((item) => item?.key?.toString().includes(currentPath))?.key?.toString() || '', [currentPath, menuItems]);
     // close submenus on deselect
     const onSelect: MenuProps['onSelect'] = ({ key }) => {
         if(openKeys.includes(key as string)) return;

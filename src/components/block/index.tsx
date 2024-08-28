@@ -3,11 +3,11 @@ import { MainBreadcrumb } from "../breadcrumb"
 
 const { Content, Footer } = Layout;
 
-export const MainBlock: React.FC<MainBlockProps> = ({ children, breadcrumb, title, button }) => {
+export const MainBlock: React.FC<MainBlockProps> = ({ children, showBreadcrumb, title, button }) => {
     return (
         <Layout>
             <Content style={{ margin: '0 16px' }}>
-                <MainBreadcrumb items={breadcrumb ? breadcrumb : []} />
+                {showBreadcrumb ? <MainBreadcrumb /> : null}
                 <Card title={title} extra={button}>
                     {children}
                 </Card>

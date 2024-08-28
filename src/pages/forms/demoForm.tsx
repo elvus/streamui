@@ -52,16 +52,7 @@ const normFile = (e: any) => {
 
 export const DemoForm: React.FC = () => {
     return (
-        <MainBlock title='Form Demo' breadcrumb={[
-            {
-                title: 'Home',
-                path: '/',
-            },
-            {
-                title: 'Forms',
-                path: '/form',
-            }
-        ]}>
+        <MainBlock title='Form Demo' showBreadcrumb={true}>
             <Form
                 layout="horizontal"
             >

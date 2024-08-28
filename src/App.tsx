@@ -9,9 +9,8 @@ type MenuItem = Required<MenuProps>['items'][number];
 const getMenuChildren = (item: any) => {
 	if (item.children) {
 		const { children, ...rest } = item;
-		const childrenItems = children.filter((child: any) => child.show).map(getMenuChildren)
+		const childrenItems = children.filter((child: any) => child.show === 'true').map(getMenuChildren)
 		if (childrenItems.length === 0) {
-			console.log(rest);
 			return {
 				...rest,
 				label: rest.to ? <Link to={rest.to}>{rest.label}</Link> : rest.label
@@ -24,7 +23,7 @@ const getMenuChildren = (item: any) => {
 		
 		}
 	}
-	return item.show === false ? null : {
+	return item.show === 'false' ? null : {
 		...item,
 		label: item.to ? <Link to={item.to}>{item.label}</Link> : item.label
 	};

@@ -522,16 +522,7 @@ export const TeachersList: React.FC = () => {
         },
     ];
     return (
-        <MainBlock title="Teachers" breadcrumb={[
-            {
-                title: "Home",
-                path: "/"
-            },
-            {
-                title: "Teachers",
-                path: "/teachers"
-            }
-        ]}>
+        <MainBlock title="Teachers" showBreadcrumb={true}>
             <SearchTable columns={columns} dataSource={dataSource} />
         </MainBlock>
     )

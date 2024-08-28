@@ -1,19 +1,15 @@
 type BreadcrumbItem = {
     title: string;
-    path: string;
+    path?: string;
 };
 
 type MainBlockProps = {
     children: React.ReactNode,
-    breadcrumb?: BreadcrumbItem[],
+    showBreadcrumb?: boolean;
     title?: string
     button?: React.ReactNode
     props?: any
 }
-
-type MainBreadcrumbProps = {
-    items: BreadcrumbItem[];
-};
 
 type NotifyProps = {
     type: 'success' | 'info' | 'warning' | 'error';

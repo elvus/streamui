@@ -525,13 +525,7 @@ export const StudentsList: React.FC = () => {
         },
     ];
     return (
-        <MainBlock title="Students" breadcrumb={[{
-            title: "Home",
-            path: "/"
-        }, {
-            title: "Students",
-            path: "/students"
-        }]} button={<Link to="/students/option1"><Button type="primary" size='middle' icon={<PlusSquareOutlined />}>New</Button></Link>}>
+        <MainBlock title="Students" showBreadcrumb={true} button={<Link to="/students/option1"><Button type="primary" size='middle' icon={<PlusSquareOutlined />}>New</Button></Link>}>
             <SearchTable columns={columns} dataSource={dataSource} />
         </MainBlock>
     )

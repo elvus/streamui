@@ -3,7 +3,7 @@ import { MainBlock } from "../../components";
 
 export const TeachersCreate: React.FC = () => {
     return(
-        <MainBlock breadcrumb={['Teachers', 'Create']}>
+        <MainBlock showBreadcrumb={true}>
             <div>Create</div>
         </MainBlock>
     )
