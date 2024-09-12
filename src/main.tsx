@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { BrowserRouter as Router, Route, RouterProvider, Routes } from 'react-router-dom'
 import { ErrorPage } from './pages/error'
 import './index.css'
 import { menuItems } from './constants.tsx'
 import { BlankPage } from './pages/blankPage/index.tsx'
+import LoginForm from './pages/login/index.tsx'
 
 const getChildRoutes = (item: any) => {
 	if (item.children) {
@@ -19,18 +20,21 @@ const getChildRoutes = (item: any) => {
 	return <Route key={item.key} path={item.to} element={item.component ? item.component : <BlankPage />} />
 }
 
-const router = createBrowserRouter(
-	createRoutesFromElements(
-		<Route path="/" element={<App />} errorElement={<ErrorPage />}>
-			{menuItems.map((item) => {
-				return getChildRoutes(item)
-			})}
-		</Route>
-	)
+const router = (
+	<Router>
+		<Routes>
+			<Route path="/login" element={<LoginForm />} />
+			<Route path="/" element={<App />} errorElement={<ErrorPage />}>
+				{menuItems.map((item) => {
+					return getChildRoutes(item)
+				})}
+			</Route>
+		</Routes>
+	</Router>
 );
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		{router}
 	</React.StrictMode>,
 )
