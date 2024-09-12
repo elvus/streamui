@@ -1,7 +1,7 @@
 import { Col, Row, Space, Table } from "antd";
 import Search from "antd/es/input/Search";
 import React, { useCallback, useMemo, useState } from "react";
-import { strings } from "../../constants";
+import { SEARCH_PLACEHOLDER } from "../../strings";
 
 export const SearchTable: React.FC<TableProps> = ({ columns, dataSource, props }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -27,7 +27,7 @@ export const SearchTable: React.FC<TableProps> = ({ columns, dataSource, props }
                     <Col xs={{ span: 32, offset: 1 }} lg={{ span: 4, offset: 2 }}>
                         <Search
                             size="middle"
-                            placeholder={strings.searchPlaceholder}
+                            placeholder={SEARCH_PLACEHOLDER}
                             onChange={debouncedSearch}
                         />
                     </Col>

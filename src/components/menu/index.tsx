@@ -4,6 +4,7 @@ import type { MenuProps } from 'antd';
 import { Layout, Menu, Space, Typography } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'antd/es/layout/layout';
+import { APP_NAME } from '../../strings';
 
 const { Sider } = Layout;
 const { Title } = Typography;
@@ -36,7 +37,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ menuItems }) => {
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="logo" style={{ width: 32, height: 32 }} />
                     <Space style={{ marginLeft: 16 }}>
-                        <Title level={5} style={{ margin: 0, color: 'white' }}>Ant Design</Title>
+                        <Title level={5} style={{ margin: 0, color: 'white' }}>{APP_NAME}</Title>
                     </Space>
                 </div>
             </Header>

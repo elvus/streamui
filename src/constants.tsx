@@ -3,22 +3,22 @@ import { Home } from './pages/home';
 import { StudentsList } from './pages/students';
 import { TeachersList } from './pages/teachers';
 import { DemoForm, ModalForm } from './pages/forms';
-import { MoviesCreate, MoviesList } from './pages/movies';
+import { CatalogCreate, CatalogList } from './pages/catalog';
 
 export const menuItems = [
     { key: '/', icon: <HomeOutlined />, label: 'Home', to: '/', component: <Home /> },
     { 
         key: '/movies', 
         icon: <PlayCircleOutlined />, 
-        label: 'Movies', 
-        to: '/movies', 
-        component: <MoviesList /> ,
+        label: 'Catalog', 
+        to: '/catalog', 
+        component: <CatalogList /> ,
         children: [
             {
-                key: '/movies/add',
+                key: '/catalog/add',
                 label: 'Add',
-                to: '/movies/add',
-                component: <MoviesCreate />,
+                to: '/catalog/add',
+                component: <CatalogCreate />,
                 show: false
             }
         ]
@@ -30,7 +30,7 @@ export const menuItems = [
         to: '/students', 
         component: <StudentsList />,
         children:[
-            { key: '/students/option1', label: 'Option 1', to: '/students/option1', show: false },
+            { key: '/students/option1', label: 'Option 1', to: '/students/option1', show: 'false' },
         ] 
     },
     { key: '/teachers', icon: <TeamOutlined />, label: 'Teachers', to: '/teachers', component: <TeachersList /> },
@@ -64,7 +64,3 @@ export const menuItems = [
         ],
     },
 ];
-
-export const strings = {
-    searchPlaceholder: 'Search...'
-}
