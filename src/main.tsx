@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import { BrowserRouter as Router, Route, RouterProvider, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { ErrorPage } from './pages/error'
 import './index.css'
 import { menuItems } from './constants.tsx'
